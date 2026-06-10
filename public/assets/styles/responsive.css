@@ -1,0 +1,328 @@
+/* ============================
+   RESPONSIVE - Mobile First
+   ============================ */
+
+/* Base: 375px and up (mobile default) */
+
+.hero__inner {
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.hero__image-wrap {
+  order: -1;
+}
+
+.features__grid {
+  grid-template-columns: 1fr;
+}
+
+.feature-card--large {
+  grid-row: span 1;
+}
+
+.feature-card--with-image {
+  flex-direction: column;
+}
+
+.feature-card__img {
+  width: 100%;
+  height: 200px;
+}
+
+.benefits__grid {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.cta-section__inner {
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+.cta-section__phone {
+  display: none;
+}
+
+.footer__grid {
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.footer__bottom {
+  flex-direction: column;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.auth-split {
+  grid-template-columns: 1fr;
+}
+
+.auth-split__left {
+  display: none;
+}
+
+.app-content {
+  margin-left: 0;
+  padding: var(--space-5);
+}
+
+.navbar__nav,
+.navbar__actions {
+  display: none;
+}
+
+.navbar__toggle {
+  display: flex;
+}
+
+.form-row {
+  grid-template-columns: 1fr;
+}
+
+/* ============================
+   768px - Tablet
+   ============================ */
+
+@media (min-width: 768px) {
+  .hero__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .hero__image-wrap {
+    order: 0;
+  }
+
+  .features__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .feature-card--large {
+    grid-row: span 2;
+  }
+
+  .feature-card--with-image {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .feature-card__img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .benefits__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cta-section__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .auth-split {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-split__left {
+    display: none;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  .navbar__nav,
+  .navbar__actions {
+    display: flex;
+  }
+}
+
+/* ============================
+   1024px - Desktop
+   ============================ */
+
+@media (min-width: 1024px) {
+  .features__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cta-section__inner {
+    grid-template-columns: 1fr auto;
+  }
+
+  .cta-section__phone {
+    display: block;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+
+  .footer__bottom {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .auth-split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .auth-split__left {
+    display: flex;
+  }
+
+  .app-content {
+    margin-left: var(--sidebar-width);
+    padding: var(--space-8);
+  }
+}
+
+/* ============================
+   1440px - Wide Desktop
+   ============================ */
+
+@media (min-width: 1440px) {
+  :root {
+    --max-width: 1280px;
+  }
+
+  .hero__headline {
+    font-size: 3.25rem;
+  }
+}
+
+/* ============================
+   1920px - Large screen
+   ============================ */
+
+@media (min-width: 1920px) {
+  :root {
+    --max-width: 1440px;
+  }
+}
+
+/* ============================
+   App layout responsive
+   ============================ */
+
+@media (max-width: 1023px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition-base);
+    z-index: 200;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 199;
+  }
+
+  .sidebar-overlay.open {
+    display: block;
+  }
+
+  .app-content {
+    margin-left: 0;
+  }
+}
+
+/* ============================
+   Password recovery
+   ============================ */
+
+.recovery-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.recovery-step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  position: relative;
+}
+
+.recovery-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 32px;
+  bottom: calc(-1 * var(--space-6));
+  width: 2px;
+  background: rgba(255,255,255,0.15);
+}
+
+.recovery-step__num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  flex-shrink: 0;
+  color: var(--color-white);
+}
+
+.recovery-step__num--done {
+  background: var(--color-green-mid);
+}
+
+.recovery-step__num--active {
+  background: var(--color-accent);
+}
+
+.recovery-step__num--pending {
+  background: rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.6);
+}
+
+.recovery-step__text {
+  padding-top: 4px;
+}
+
+.recovery-step__title {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--color-white);
+}
+
+.recovery-step__sub {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+}
+
+/* Recovery icon box */
+.recovery-icon-box {
+  width: 80px;
+  height: 80px;
+  background: var(--color-navy);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+  font-size: 2.5rem;
+}
