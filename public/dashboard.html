@@ -2,13 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/styles/dashboard.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Panel principal de FaunaScan — Monitoreo de fauna silvestre.">
-  <title>Panel Principal — FaunaScan</title>
-  <link rel="stylesheet" href="assets/styles/global.css">
-  <link rel="stylesheet" href="assets/styles/navbar.css">
-  <link rel="stylesheet" href="assets/styles/dashboard.css">
-  <link rel="stylesheet" href="assets/styles/responsive.css">
+  <title>Panel Principal</title>
+  
+  
+  
+  
 </head>
 <body>
 
@@ -16,34 +17,29 @@
 
     <!-- SIDEBAR -->
     <aside class="sidebar" aria-label="Menú principal de la aplicación">
-      <div class="sidebar__header">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-          <rect width="40" height="40" rx="8" fill="rgba(255,255,255,0.15)"/>
-          <circle cx="20" cy="17" r="7" fill="none" stroke="#4caf7d" stroke-width="2"/>
-          <path d="M14 26c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#f5a623" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="20" cy="17" r="2.5" fill="#4caf7d"/>
-        </svg>
+      <a href="index.html" class="sidebar__header">
+        <img src="assets/images/LogoFaunaScan.png" alt="Logo de FaunaScan" class="sidebar__logo">
         <span class="sidebar__logo-text">FaunaScan</span>
-      </div>
+      </a>
 
       <nav class="sidebar__nav" aria-label="Navegación de la app">
         <a href="dashboard.html" class="sidebar__link active" aria-current="page">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
           Principal
         </a>
-        <a href="#" class="sidebar__link">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/><line x1="12" y1="2" x2="12" y2="2"/></svg>
+        <a href="registrar.html" class="sidebar__link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           Registrar
         </a>
-        <a href="#" class="sidebar__link">
+        <a href="mapa.html" class="sidebar__link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
           Mapa
         </a>
-        <a href="#" class="sidebar__link">
+        <a href="reportes.html" class="sidebar__link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
           Reportes
         </a>
-        <a href="#" class="sidebar__link">
+        <a href="historial.html" class="sidebar__link">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           Historial
         </a>
@@ -57,13 +53,16 @@
     <main class="app-content">
 
       <div class="app-topbar">
+        <button class="sidebar-toggle" aria-label="Abrir menú lateral">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
         <h1 class="app-topbar__title">Panel principal</h1>
         <div class="app-topbar__actions">
-          <a href="#" class="app-topbar__action" aria-label="Ver alertas">
+          <a href="notificaciones.html" class="app-topbar__action" aria-label="Ver alertas">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
             Alertas
           </a>
-          <a href="#" class="app-topbar__action" aria-label="Ver perfil">
+          <a href="perfil.html" class="app-topbar__action" aria-label="Ver perfil">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             Perfil
           </a>
@@ -73,7 +72,7 @@
       <!-- Welcome banner -->
       <div class="welcome-banner" role="banner" aria-label="Resumen de actividad">
         <div class="welcome-banner__left">
-          <p class="welcome-banner__title">Bienvenido de regreso, Jose</p>
+          <p class="welcome-banner__title" id="welcomeName">Bienvenido de regreso</p>
           <p class="welcome-banner__desc">Tu monitoreo contribuye a la preservación de la fauna.</p>
         </div>
         <div class="welcome-banner__right">
@@ -89,25 +88,25 @@
       <!-- Quick actions -->
       <nav aria-label="Acciones rápidas">
         <div class="quick-actions">
-          <a href="#" class="action-card action-card--primary" aria-label="Crear nuevo registro">
+          <a href="registrar.html" class="action-card action-card--primary" aria-label="Crear nuevo registro">
             <div class="action-card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/><line x1="12" y1="9" x2="12" y2="9"/><line x1="12" y1="11" x2="12" y2="11"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
             </div>
             <span class="action-card__label">Nuevo<br>Registro</span>
           </a>
-          <a href="#" class="action-card" aria-label="Ver catálogo de especies">
+          <a href="catalogo.html" class="action-card" aria-label="Ver catálogo de especies">
             <div class="action-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
             </div>
-            <span class="action-card__label">Catalogo</span>
+            <span class="action-card__label">Catálogo</span>
           </a>
-          <a href="#" class="action-card" aria-label="Verificar avistamientos">
+          <a href="verificar.html" class="action-card" aria-label="Verificar avistamientos">
             <div class="action-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
             </div>
             <span class="action-card__label">Verificar</span>
           </a>
-          <a href="#" class="action-card" aria-label="Ver sistema">
+          <a href="sistema.html" class="action-card" aria-label="Ver sistema">
             <div class="action-card__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
@@ -237,6 +236,6 @@
     </main>
   </div>
 
-  <script type="module" src="assets/scripts/main.js"></script>
+  <script src="assets/scripts/dashboard.js" defer></script>
 </body>
 </html>
