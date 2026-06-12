@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="assets/styles/recover.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Recupera tu contraseña de FaunaScan Perú.">
+  <title>Recuperar contraseña — FaunaScan</title>
+  
+  
+  
+  
+</head>
+<body>
+
+  <div class="auth-split">
+
+    <!-- LEFT PANEL -->
+    <aside class="auth-split__left" aria-label="Pasos del proceso">
+      <a href="index.html" class="auth-split__logo">
+        <img src="assets/images/LogoFaunaScan.png"
+         alt="Logo de FaunaScan"
+         class="auth-split__logo-img">
+        <span class="auth-split__logo-text">FaunaScan</span>
+      </a>
+
+      <div>
+        <p style="font-size:var(--text-xs);font-weight:var(--font-semibold);letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:var(--space-5);">PASOS DEL PROCESO</p>
+
+        <ol class="recovery-steps" aria-label="Pasos para recuperar contraseña">
+          <li class="recovery-step">
+            <span class="recovery-step__num recovery-step__num--done" aria-label="Paso completado">1</span>
+            <div class="recovery-step__text">
+              <p class="recovery-step__title">Iniciar sesión</p>
+              <p class="recovery-step__sub">Accede a la sección de login</p>
+            </div>
+          </li>
+          <li class="recovery-step">
+            <span class="recovery-step__num recovery-step__num--active" aria-label="Paso actual">2</span>
+            <div class="recovery-step__text">
+              <p class="recovery-step__title">Ingresar correo</p>
+              <p class="recovery-step__sub">Recibirás un enlace de recuperación</p>
+            </div>
+          </li>
+          <li class="recovery-step">
+            <span class="recovery-step__num recovery-step__num--pending" aria-label="Paso pendiente">3</span>
+            <div class="recovery-step__text">
+              <p class="recovery-step__title">Verificar código</p>
+              <p class="recovery-step__sub">Revisa tu bandeja de entrada</p>
+            </div>
+          </li>
+          <li class="recovery-step">
+            <span class="recovery-step__num recovery-step__num--pending" aria-label="Paso pendiente">4</span>
+            <div class="recovery-step__text">
+              <p class="recovery-step__title">Nueva contraseña</p>
+              <p class="recovery-step__sub">Establece una nueva contraseña segura</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </aside>
+
+    <!-- RIGHT PANEL -->
+    <main class="auth-split__right">
+      <div class="auth-card">
+
+        <div class="recovery-icon-box" aria-hidden="true">🔑</div>
+
+        <h2 class="auth-card__title">¿Olvidaste tu contraseña?</h2>
+        <p class="auth-card__subtitle">Iniciaste el proceso al presionar "Olvidé mi contraseña" en la pantalla de inicio de sesión.</p>
+
+        <div class="auth-card__alert" role="status" style="margin-top:var(--space-5);">
+          <svg class="auth-card__alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <p>Ingresa tu correo y te enviaremos un código para verificar tu información</p>
+        </div>
+
+        <form class="auth-card__form" id="recoveryForm" novalidate style="margin-top:var(--space-5);">
+          <div class="form-group">
+            <label class="form-label" for="recoveryEmail">Correo electrónico registrado</label>
+            <input
+              class="form-input"
+              type="email"
+              id="recoveryEmail"
+              name="email"
+              placeholder="ejemplo@tucorreo.com"
+              autocomplete="email"
+              required
+              aria-required="true"
+            >
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full btn-lg">Enviar código de recuperación</button>
+          <a href="login.html" class="btn btn-outline btn-full btn-lg" style="margin-top:var(--space-1);">Regresar</a>
+        </form>
+
+      </div>
+    </main>
+
+  </div>
+
+  <script src="assets/scripts/recover.js" defer></script>
+</body>
+</html>
