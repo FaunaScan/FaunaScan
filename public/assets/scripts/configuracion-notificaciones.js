@@ -18,22 +18,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  const searchInput = document.getElementById('catalogoSearch');
-  const estadoSelect = document.getElementById('filtroEstado');
-  const cards = document.querySelectorAll('.especie-card');
+  document.querySelectorAll('.notifcat-row input[type="checkbox"]').forEach(function (chk) {
+    chk.addEventListener('change', function () {
+      const row = chk.closest('.notifcat-row');
+      const previewItem = document.querySelector('.vista-previa__item[data-category="' + row.dataset.category + '"]');
+      if (previewItem) previewItem.classList.toggle('vista-previa__item--off', !chk.checked);
+    });
+  });
 
-  function filter() {
-    const q = searchInput ? searchInput.value.toLowerCase() : '';
-    const est = estadoSelect ? estadoSelect.value : '';
-    cards.forEach(function (card) {
-      const nombre = (card.dataset.nombre || '').toLowerCase();
-      const cardEst = card.dataset.estado || '';
-      const matchNombre = !q || nombre.includes(q);
-      const matchEst = !est || cardEst === est;
-      card.classList.toggle('hidden', !(matchNombre && matchEst));
+  const btnGuardar = document.getElementById('btnGuardarNotif');
+  if (btnGuardar) {
+    btnGuardar.addEventListener('click', function () {
+      btnGuardar.textContent = 'Guardado';
+      setTimeout(function () { btnGuardar.textContent = 'Guardar'; }, 1500);
     });
   }
-
-  searchInput && searchInput.addEventListener('input', filter);
-  estadoSelect && estadoSelect.addEventListener('change', filter);
 });
