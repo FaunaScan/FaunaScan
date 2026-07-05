@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link.getAttribute('href') === page) link.classList.add('active');
   });
 
-  const toggle = document.getElementById('sidebarToggle');
+  const toggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const overlay = document.querySelector('.sidebar-overlay');
   if (toggle && sidebar) {
@@ -16,5 +16,13 @@ document.addEventListener('DOMContentLoaded', function () {
       sidebar.classList.remove('open');
       overlay.classList.remove('open');
     });
+  }
+
+
+  const alertaSeg = document.getElementById('diagAlertaSeg');
+  const alertaBar = document.getElementById('diagAlertaBar');
+  if (alertaSeg && alertaBar) {
+      alertaSeg.textContent = "42";
+      alertaBar.style.width = "70%";
   }
 });
