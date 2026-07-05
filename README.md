@@ -61,9 +61,9 @@ Proyecto desarrollado para el curso IHC y Tecnologías Móviles – UPC por:
 # Estado del Proyecto
 * Investigación de usuarios completada
 * Diseño UX/UI 
-* Landing Page implementada (Sprint 1)
-* Prototipos funcionales (Sprint 1)
-* Validaciones realizadas del Sprint 1
-* Ajustes finales y documentación en proceso
+* Landing Page implementada 
+* Prototipos funcionales
+* Validaciones realizadas 
+* Ajustes y documentación completado
 
-Estado actual: En etapa de validación y mejora
+Estado actual: Completado
