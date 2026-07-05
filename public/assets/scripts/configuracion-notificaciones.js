@@ -18,21 +18,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  const filterBtns = document.querySelectorAll('.notif-filter');
-  const items = document.querySelectorAll('.notif-item');
-
-  filterBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      filterBtns.forEach(function (b) { b.classList.remove('notif-filter--active'); });
-      btn.classList.add('notif-filter--active');
-      const cat = btn.dataset.filter || 'todas';
-      items.forEach(function (item) {
-        if (cat === 'todas' || item.dataset.category === cat) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+  document.querySelectorAll('.notifcat-row input[type="checkbox"]').forEach(function (chk) {
+    chk.addEventListener('change', function () {
+      const row = chk.closest('.notifcat-row');
+      const previewItem = document.querySelector('.vista-previa__item[data-category="' + row.dataset.category + '"]');
+      if (previewItem) previewItem.classList.toggle('vista-previa__item--off', !chk.checked);
     });
   });
+
+  const btnGuardar = document.getElementById('btnGuardarNotif');
+  if (btnGuardar) {
+    btnGuardar.addEventListener('click', function () {
+      btnGuardar.textContent = 'Guardado';
+      setTimeout(function () { btnGuardar.textContent = 'Guardar'; }, 1500);
+    });
+  }
 });
