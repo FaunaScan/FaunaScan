@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link.getAttribute('href') === page) link.classList.add('active');
   });
 
-  const toggle = document.getElementById('sidebarToggle');
+  const toggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const overlay = document.querySelector('.sidebar-overlay');
   if (toggle && sidebar) {
@@ -18,64 +18,91 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  var map = L.map('mapaLeaflet').setView([-9.19, -75.01], 6);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    maxZoom: 18
-  }).addTo(map);
+  
+  const card = document.getElementById('mapaCard');
+  const cardEmoji = document.getElementById('cardEmoji');
+  const cardNombre = document.getElementById('cardNombre');
+  const cardCientifico = document.getElementById('cardCientifico');
+  const cardZona = document.getElementById('cardZona');
+  const cardEstado = document.getElementById('cardEstado');
 
-  var markers = [
-    { lat: -12.046, lng: -77.042, especie: 'Jaguar', estado: 'En peligro', emoji: '🐆', zona: 'Lima' },
-    { lat: -13.531, lng: -71.967, especie: 'Cóndor Andino', estado: 'Vulnerable', emoji: '🦅', zona: 'Cusco' },
-    { lat: -3.749, lng: -73.253, especie: 'Delfín Rosado', estado: 'En peligro', emoji: '🐬', zona: 'Loreto' },
-    { lat: -5.194, lng: -80.631, especie: 'Nutria Gigante', estado: 'En peligro crítico', emoji: '🦦', zona: 'Piura' },
-    { lat: -8.112, lng: -79.028, especie: 'Oso de Anteojos', estado: 'Vulnerable', emoji: '🐻', zona: 'La Libertad' },
-    { lat: -16.409, lng: -71.537, especie: 'Vicuña', estado: 'Estable', emoji: '🦙', zona: 'Arequipa' },
-    { lat: -6.771, lng: -79.840, especie: 'Puma', estado: 'Vulnerable', emoji: '🦁', zona: 'Lambayeque' },
-    { lat: -4.013, lng: -77.818, especie: 'Tapir Amazónico', estado: 'Vulnerable', emoji: '🐾', zona: 'San Martín' }
-  ];
-
-  var colorMap = {
-    'En peligro crítico': '#c0392b',
-    'En peligro': '#e67e22',
-    'Vulnerable': '#f5a623',
-    'Estable': '#4caf7d'
-  };
-
-  function getIcon(color) {
-    return L.divIcon({
-      html: '<div style="width:14px;height:14px;background:' + color + ';border:2px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,.4)"></div>',
-      className: '',
-      iconSize: [14, 14],
-      iconAnchor: [7, 7]
-    });
+  function mostrarInfo(el) {
+    if (!card || !el) return;
+    cardEmoji.textContent = el.dataset.emoji || '🐾';
+    cardNombre.textContent = el.dataset.nombre || '';
+    cardCientifico.textContent = el.dataset.cientifico || '';
+    cardZona.textContent = el.dataset.zona || '';
+    cardEstado.textContent = el.dataset.estado || '';
+    card.classList.remove('hidden');
   }
 
-  var allMarkerObjects = [];
-  markers.forEach(function (m) {
-    var color = colorMap[m.estado] || '#888';
-    var marker = L.marker([m.lat, m.lng], { icon: getIcon(color) }).addTo(map);
-    marker.bindPopup('<strong>' + m.emoji + ' ' + m.especie + '</strong><br><span style="font-size:.8rem;color:#555">' + m.zona + '</span><br><span style="font-size:.8rem;color:' + color + '">' + m.estado + '</span>');
-    allMarkerObjects.push({ data: m, marker: marker });
+  document.querySelectorAll('.mapa-pin, .mapa-mock__paw').forEach(function (pin) {
+    pin.addEventListener('click', function () { mostrarInfo(pin); });
   });
 
-  var especieFilter = document.getElementById('filtroEspecie');
-  var estadoFilter = document.getElementById('filtroEstado');
-
-  function applyFilters() {
-    var esp = especieFilter ? especieFilter.value.toLowerCase() : '';
-    var est = estadoFilter ? estadoFilter.value : '';
-    allMarkerObjects.forEach(function (obj) {
-      var matchEsp = !esp || obj.data.especie.toLowerCase().includes(esp);
-      var matchEst = !est || obj.data.estado === est;
-      if (matchEsp && matchEst) {
-        map.addLayer(obj.marker);
-      } else {
-        map.removeLayer(obj.marker);
-      }
+  
+  const filtroInput = document.getElementById('mapaFiltroInput');
+  if (filtroInput) {
+    filtroInput.addEventListener('input', function () {
+      const q = filtroInput.value.toLowerCase().trim();
+      document.querySelectorAll('.mapa-pin, .mapa-mock__paw').forEach(function (pin) {
+        const nombre = (pin.dataset.nombre || '').toLowerCase();
+        pin.style.display = (!q || nombre.includes(q)) ? '' : 'none';
+      });
     });
   }
 
-  especieFilter && especieFilter.addEventListener('input', applyFilters);
-  estadoFilter && estadoFilter.addEventListener('change', applyFilters);
+  
+  const terrain = document.getElementById('mapaTerrain');
+  const pinsLayer = document.getElementById('mapaPinsLayer');
+  const btnZoomIn = document.getElementById('btnZoomIn');
+  const btnZoomOut = document.getElementById('btnZoomOut');
+  const btnLocate = document.getElementById('btnLocate');
+  const zoomBadge = document.getElementById('mapaZoomBadge');
+
+  const ZOOM_MIN = 0.6;
+  const ZOOM_MAX = 2.5;
+  const ZOOM_STEP = 0.25;
+  const GRID_BASE = 64;
+  let zoomLevel = 1;
+
+  function aplicarZoom() {
+    if (!terrain) return;
+
+    terrain.style.setProperty('--grid-size', (GRID_BASE * zoomLevel) + 'px');
+
+    if (pinsLayer) pinsLayer.style.transform = 'scale(' + zoomLevel + ')';
+    if (zoomBadge) zoomBadge.textContent = 'Zoom: ' + Math.round(zoomLevel * 100) + '%';
+  }
+
+  if (btnZoomIn && terrain) {
+    btnZoomIn.addEventListener('click', function () {
+      zoomLevel = Math.min(ZOOM_MAX, +(zoomLevel + ZOOM_STEP).toFixed(2));
+      aplicarZoom();
+    });
+  }
+  if (btnZoomOut && terrain) {
+    btnZoomOut.addEventListener('click', function () {
+      zoomLevel = Math.max(ZOOM_MIN, +(zoomLevel - ZOOM_STEP).toFixed(2));
+      aplicarZoom();
+    });
+  }
+  if (btnLocate && terrain) {
+    btnLocate.addEventListener('click', function () {
+      zoomLevel = 1;
+      aplicarZoom();
+      const paw = document.getElementById('btnMapaPaw');
+      if (paw) mostrarInfo(paw);
+    });
+  }
+  aplicarZoom();
+
+
+  const btnCalor = document.getElementById('btnToggleCalor');
+  if (btnCalor && terrain) {
+    btnCalor.addEventListener('click', function () {
+      const activo = terrain.classList.toggle('calor-on');
+      btnCalor.classList.toggle('active', activo);
+    });
+  }
 });
