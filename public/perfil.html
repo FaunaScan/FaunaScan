@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil</title>
-  <link rel="stylesheet" href="assets/styles/perfil.css">
+  <title>Mi perfil — FaunaScan</title>
+  <link rel="stylesheet" href="assets/styles/perfil.css?v=4">
 </head>
 <body>
   <div class="app-layout">
     <aside class="sidebar">
       <a href="index.html" class="sidebar__header">
-        <img src="assets/images/LogoFaunaScan.png" alt="Logo FaunaScan" class="sidebar__logo">
+        <img src="assets/images/LogoFaunaScan.png" alt="FaunaScan" class="sidebar__logo-img">
         <span class="sidebar__logo-text">FaunaScan</span>
       </a>
       <nav class="sidebar__nav">
-        <a href="dashboard.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Principal</a>
-        <a href="registrar.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Registrar</a>
-        <a href="mapa.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Mapa</a>
-        <a href="reportes.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Reportes</a>
-        <a href="historial.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Historial</a>
+        <a href="dashboard.html" class="sidebar__link active">
+          <img src="assets/icons/Principal.png" class="sidebar__icon">Principal</a>
+        <a href="registrar.html" class="sidebar__link">
+          <img src="assets/icons/Registrar.png" class="sidebar__icon">Registrar</a>
+        <a href="mapa.html" class="sidebar__link">
+          <img src="assets/icons/Mapa.png" class="sidebar__icon">Mapa</a>
+        <a href="reportes.html" class="sidebar__link">
+          <img src="assets/icons/Reportes.png" class="sidebar__icon">Reportes</a>
+        <a href="historial.html" class="sidebar__link">
+          <img src="assets/icons/Historial.png" class="sidebar__icon">Historial</a>
       </nav>
     </aside>
     <div class="sidebar-overlay"></div>
@@ -27,9 +32,6 @@
       <div class="app-topbar">
         <button class="sidebar-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
         <h1 class="app-topbar__title">Mi perfil</h1>
-        <div class="app-topbar__actions">
-          <a href="notificaciones.html" class="app-topbar__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Alertas</a>
-        </div>
       </div>
 
       <div class="perfil-layout">
@@ -54,13 +56,14 @@
             </div>
           </div>
 
-          <button class="btn btn-danger btn-full" id="btnLogout">Cerrar sesión</button>
+          <button class="btn btn-outline btn-full mb-3" id="btnEditarPerfil">Editar perfil</button>
+          <button class="btn btn-danger btn-full" id="btnLogout" data-modal="modalLogout">Cerrar sesión</button>
         </div>
 
         <div class="perfil-info">
-          <div class="card">
+          <div class="card" id="cardInfoPersonal">
             <h3 class="card__title">Información personal</h3>
-            <div class="info-grid">
+            <div class="info-grid" id="infoPersonalView">
               <div class="info-item">
                 <span class="info-item__label">Nombre completo</span>
                 <span class="info-item__value" id="perfilFullName">—</span>
@@ -78,6 +81,37 @@
                 <span class="info-item__value">Mayo 2026</span>
               </div>
             </div>
+
+            <form class="info-grid" id="infoPersonalForm" style="display:none;">
+              <div class="form-group">
+                <label class="form-label">Nombre</label>
+                <input class="form-input" type="text" id="editNombre">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Apellido</label>
+                <input class="form-input" type="text" id="editApellido">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Correo electrónico</label>
+                <input class="form-input" type="email" id="editEmail">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Teléfono</label>
+                <input class="form-input" type="tel" id="editTelefono" placeholder="+51 123 456 789">
+              </div>
+              <div class="form-group form-group--full">
+                <label class="form-label">Institución</label>
+                <input class="form-input" type="text" id="editInstitucion" placeholder="Ej: Universidad Peruana de Ciencias Aplicadas">
+              </div>
+              <div class="form-group form-group--full">
+                <label class="form-label">Biografía profesional</label>
+                <textarea class="form-input" id="editBio" rows="3" placeholder="Cuéntanos sobre tu experiencia investigando fauna silvestre…"></textarea>
+              </div>
+              <div class="info-grid__actions">
+                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                <button type="button" class="btn btn-outline" id="btnCancelarEdicion">Cancelar</button>
+              </div>
+            </form>
           </div>
 
           <div class="card">
@@ -94,6 +128,24 @@
       </div>
     </main>
   </div>
-  <script src="assets/scripts/perfil.js" defer></script>
+
+  <div class="modal-overlay" id="modalLogout">
+    <div class="modal-card">
+      <h3 class="modal-card__title">¿Cerrar sesión?</h3>
+      <p class="modal-card__text">¿Estás seguro que deseas salir? Tus datos están guardados de forma segura.</p>
+      <div class="modal-card__user">
+        <div class="perfil-avatar perfil-avatar--sm" id="modalAvatar">U</div>
+        <div>
+          <p class="modal-card__user-name" id="modalUserName">Usuario</p>
+          <p class="modal-card__user-email" id="modalUserEmail">usuario@email.com</p>
+        </div>
+      </div>
+      <button class="btn btn-danger btn-full" id="btnConfirmarLogout">Cerrar sesión</button>
+      <button class="btn btn-outline btn-full mt-3" id="btnCancelarLogout">Cancelar</button>
+      <p class="modal-card__footer">Serás redirigido a la <strong>pantalla inicial</strong></p>
+    </div>
+  </div>
+
+  <script src="assets/scripts/perfil.js?v=3" defer></script>
 </body>
 </html>
