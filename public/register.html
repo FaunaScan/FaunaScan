@@ -4,58 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Crea tu cuenta en FaunaScan Perú.">
-  <title>FaunaScan</title>
-  <link rel="stylesheet" href="assets/styles/register.css">
+  <title>Registrarse — FaunaScan</title>
+  <link rel="stylesheet" href="assets/styles/register.css?v=3">
 </head>
 <body>
 
   <div class="auth-split">
 
     <aside class="auth-split__left">
-
       <a href="index.html" class="auth-split__logo">
-        <img src="assets/images/LogoFaunaScan.png" alt="FaunaScan" class="auth-split__logo-img">
+        <img src="assets/images/LogoFaunaScan.png" alt="Logo de FaunaScan" class="auth-split__logo-img">
         <span class="auth-split__logo-text">FaunaScan</span>
       </a>
-
       <div class="auth-split__content">
-        <h1 class="auth-split__headline"> Monitorea la fauna del<br><span>Perú</span> desde cualquier lugar
-        </h1>
-
-          <p class="auth-split__desc">
-            Registra avistamientos, identifica especies con IA y
-            contribuye a la conservación de la biodiversidad
-            peruana, incluso sin conexión a internet.
-          </p>
-        </div>
-
-      <div class="auth-split__features">
-        <div class="auth-split__feature">
-          <span class="auth-split__feature-icon">📡</span>
-          <span>Funciona sin conexión — sincroniza al recuperar señal</span>
-        </div>
-
-        <div class="auth-split__feature">
-          <span class="auth-split__feature-icon">🤖</span>
-          <span>Identificación automática de especies por IA</span>
-        </div>
-
-        <div class="auth-split__feature">
-          <span class="auth-split__feature-icon">🗺️</span>
-          <span>Mapas interactivos con avistamientos geolocalizados</span>
-        </div>
-
-        <div class="auth-split__feature">
-          <span class="auth-split__feature-icon">🔔</span>
-         <span>Alertas inmediatas sobre especies vulnerables</span>
+        <h1 class="auth-split__headline">Únete a<br><span>FaunaScan</span></h1>
+        <p class="auth-split__desc">Registra avistamientos, identifica especies con IA y contribuye a la conservación de la fauna silvestre del Perú.</p>
+        <div class="auth-split__features">
+          <div class="auth-split__feature">
+            <span class="auth-split__feature-icon">🔍</span>
+            <span>Identificación de especies con IA en tiempo real</span>
+          </div>
+          <div class="auth-split__feature">
+            <span class="auth-split__feature-icon">📡</span>
+            <span>Modo offline para zonas remotas sin internet</span>
+          </div>
+          <div class="auth-split__feature">
+            <span class="auth-split__feature-icon">🗺️</span>
+            <span>Mapas dinámicos con geolocalización de alta precisión</span>
+          </div>
+          <div class="auth-split__feature">
+            <span class="auth-split__feature-icon">🔔</span>
+            <span>Alertas inmediatas sobre especies vulnerables</span>
+          </div>
         </div>
       </div>
-      </aside>
+    </aside>
 
     <main class="auth-split__right">
       <div class="auth-card">
-        <h2 class="auth-card__title">Registrarse</h2>
-        <p class="auth-card__subtitle">Selecciona tu rol y completa tus datos para comenzar</p>
+        <h2 class="auth-card__title">Crear cuenta</h2>
+        <p class="auth-card__subtitle">Completa los datos para comenzar a monitorear la fauna</p>
 
         <form class="auth-card__form" id="registerForm" novalidate>
 
@@ -66,13 +54,13 @@
                 <input type="radio" id="roleInvestigador" name="role" value="investigador" checked style="display:none;">
                 <span class="role-card__icon">🔬</span>
                 <span class="role-card__title">Investigador</span>
-                <span class="role-card__sub">Requiere credencial</span>
+                <span class="role-card__sub">Científico o académico</span>
               </label>
               <label class="role-card" for="roleVoluntario">
                 <input type="radio" id="roleVoluntario" name="role" value="voluntario" style="display:none;">
                 <span class="role-card__icon">🌿</span>
                 <span class="role-card__title">Voluntario</span>
-                <span class="role-card__sub">Acceso inmediato</span>
+                <span class="role-card__sub">Ciudadano colaborador</span>
               </label>
             </div>
           </div>
@@ -114,13 +102,13 @@
         </form>
 
         <p class="auth-card__footer">
-          ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión</a>
+          ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
         </p>
       </div>
     </main>
 
   </div>
 
-  <script src="assets/scripts/register.js" defer></script>
+  <script src="assets/scripts/register.js?v=3" defer></script>
 </body>
 </html>

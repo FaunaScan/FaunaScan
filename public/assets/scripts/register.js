@@ -49,15 +49,20 @@ document.addEventListener('DOMContentLoaded', function () {
     if (terms && !terms.checked)        { ok = false; }
 
     if (ok) {
+      var roleInput = form.querySelector('input[name="role"]:checked');
+      var role = roleInput ? roleInput.value : 'voluntario';
       localStorage.setItem('faunaUser', JSON.stringify({
         nombre:   nombre.value.trim(),
         apellido: apellido.value.trim(),
-        email:    email.value.trim()
+        email:    email.value.trim(),
+        rol:      role
       }));
       var btn = form.querySelector('button[type="submit"]');
-      btn.textContent = 'Creando cuenta…';
+      btn.textContent = 'Creando cuenta';
       btn.disabled = true;
-      setTimeout(function () { window.location.href = 'dashboard.html'; }, 1000);
+      setTimeout(function () {
+        window.location.href = role === 'investigador' ? 'verificacion-investigador.html' : 'dashboard.html';
+      }, 1000);
     }
   });
 });
