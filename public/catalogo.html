@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo</title>
-  <link rel="stylesheet" href="assets/styles/catalogo.css">
+  <title>Catálogo — FaunaScan</title>
+  <link rel="stylesheet" href="assets/styles/catalogo.css?v=3">
 </head>
 <body>
   <div class="app-layout">
     <aside class="sidebar">
       <a href="index.html" class="sidebar__header">
-        <img src="assets/images/LogoFaunaScan.png" alt="Logo de FaunaScan" class="sidebar__logo">
+        <img src="assets/images/LogoFaunaScan.png" alt="FaunaScan" class="sidebar__logo-img">
         <span class="sidebar__logo-text">FaunaScan</span>
       </a>
       <nav class="sidebar__nav">
-        <a href="dashboard.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Principal</a>
-        <a href="registrar.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Registrar</a>
-        <a href="mapa.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Mapa</a>
-        <a href="reportes.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Reportes</a>
-        <a href="historial.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Historial</a>
+        <a href="dashboard.html" class="sidebar__link active">
+          <img src="assets/icons/Principal.png" class="sidebar__icon">Principal</a>
+        <a href="registrar.html" class="sidebar__link">
+          <img src="assets/icons/Registrar.png" class="sidebar__icon">Registrar</a>
+        <a href="mapa.html" class="sidebar__link">
+          <img src="assets/icons/Mapa.png" class="sidebar__icon">Mapa</a>
+        <a href="reportes.html" class="sidebar__link">
+          <img src="assets/icons/Reportes.png" class="sidebar__icon">Reportes</a>
+        <a href="historial.html" class="sidebar__link">
+          <img src="assets/icons/Historial.png" class="sidebar__icon">Historial</a>
       </nav>
     </aside>
     <div class="sidebar-overlay"></div>
@@ -27,10 +32,6 @@
       <div class="app-topbar">
         <button class="sidebar-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
         <h1 class="app-topbar__title">Catálogo de especies</h1>
-        <div class="app-topbar__actions">
-          <a href="notificaciones.html" class="app-topbar__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Alertas</a>
-          <a href="perfil.html" class="app-topbar__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</a>
-        </div>
       </div>
 
       <div class="catalogo-toolbar">
@@ -47,7 +48,7 @@
       <div class="catalogo-grid" id="catalogoGrid">
         <article class="especie-card" data-nombre="Cóndor andino" data-estado="vulnerable">
           <div class="especie-card__img">
-          <img src="assets/images/Condor.png" alt="Cóndor andino">
+            <img src="assets/images/Condor.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Cóndor andino</h3>
@@ -57,7 +58,7 @@
         </article>
         <article class="especie-card" data-nombre="Oso de anteojos" data-estado="vulnerable">
           <div class="especie-card__img">
-            <img src="assets/images/OsoDeAnteojos.png" alt="Oso de anteojos">
+            <img src="assets/images/OsoDeAnteojos.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Oso de anteojos</h3>
@@ -67,7 +68,7 @@
         </article>
         <article class="especie-card" data-nombre="Jaguar" data-estado="critico">
           <div class="especie-card__img">
-            <img src="assets/images/Jaguar.png" alt="Jaguar">
+            <img src="assets/images/Jaguar.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Jaguar</h3>
@@ -77,7 +78,7 @@
         </article>
         <article class="especie-card" data-nombre="Guacamayo rojo" data-estado="menor">
           <div class="especie-card__img">
-            <img src="assets/images/Guacamayo.png" alt="Guacamayo rojo">
+            <img src="assets/images/Guacamayo.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Guacamayo rojo</h3>
@@ -87,7 +88,7 @@
         </article>
         <article class="especie-card" data-nombre="Tapir amazónico" data-estado="vulnerable">
           <div class="especie-card__img">
-            <img src="assets/images/Tapir.png" alt="Tapir amazónico">
+            <img src="assets/images/Tapir.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Tapir amazónico</h3>
@@ -97,7 +98,7 @@
         </article>
         <article class="especie-card" data-nombre="Delfín rosado" data-estado="critico">
           <div class="especie-card__img">
-            <img src="assets/images/Delfin.png" alt="Delfín rosado">
+            <img src="assets/images/Delfin.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Delfín rosado</h3>
@@ -107,7 +108,7 @@
         </article>
         <article class="especie-card" data-nombre="Anaconda verde" data-estado="menor">
           <div class="especie-card__img">
-            <img src="assets/images/Anaconda.png" alt="Anaconda verde">
+            <img src="assets/images/Anaconda.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Anaconda verde</h3>
@@ -117,7 +118,7 @@
         </article>
         <article class="especie-card" data-nombre="Llama andina" data-estado="menor">
           <div class="especie-card__img">
-            <img src="assets/images/Llama.png" alt="Llama andina">
+            <img src="assets/images/Llama.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Llama andina</h3>
@@ -127,7 +128,7 @@
         </article>
         <article class="especie-card" data-nombre="Lobo marino" data-estado="casi">
           <div class="especie-card__img">
-            <img src="assets/images/LoboMarino.png" alt="Lobo marino">
+            <img src="assets/images/LoboMarino.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Lobo marino</h3>
@@ -137,7 +138,7 @@
         </article>
         <article class="especie-card" data-nombre="Mono choro" data-estado="critico">
           <div class="especie-card__img">
-            <img src="assets/images/MonoChoro.png" alt="Mono choro">
+            <img src="assets/images/MonoChoro.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Mono choro</h3>
@@ -147,7 +148,7 @@
         </article>
         <article class="especie-card" data-nombre="Puma" data-estado="menor">
           <div class="especie-card__img">
-            <img src="assets/images/Puma.png" alt="Puma">
+            <img src="assets/images/Puma.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Puma</h3>
@@ -157,7 +158,7 @@
         </article>
         <article class="especie-card" data-nombre="Manatí amazónico" data-estado="critico">
           <div class="especie-card__img">
-            <img src="assets/images/Manati.png" alt="Manatí amazónico">
+            <img src="assets/images/Manati.png">
           </div>
           <div class="especie-card__body">
             <h3 class="especie-card__nombre">Manatí amazónico</h3>
@@ -168,6 +169,6 @@
       </div>
     </main>
   </div>
-  <script src="assets/scripts/catalogo.js" defer></script>
+  <script src="assets/scripts/catalogo.js?v=3" defer></script>
 </body>
 </html>

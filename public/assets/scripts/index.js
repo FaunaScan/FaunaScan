@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function onScroll() { navbar.classList.toggle('scrolled', window.scrollY > 10); }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+    
   }
 
   if (toggle && mobileMenu) {

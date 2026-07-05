@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link.getAttribute('href') === page) link.classList.add('active');
   });
 
-  const toggle = document.getElementById('sidebarToggle');
+  const toggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const overlay = document.querySelector('.sidebar-overlay');
   if (toggle && sidebar) {
@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', function () {
       filterBtns.forEach(function (b) { b.classList.remove('notif-filter--active'); });
       btn.classList.add('notif-filter--active');
-      const cat = btn.dataset.category || 'all';
+      const cat = btn.dataset.filter || 'todas';
       items.forEach(function (item) {
-        if (cat === 'all' || item.dataset.category === cat) {
+        if (cat === 'todas' || item.dataset.category === cat) {
           item.style.display = '';
         } else {
           item.style.display = 'none';

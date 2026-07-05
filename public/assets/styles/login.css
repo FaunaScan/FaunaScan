@@ -2,7 +2,7 @@
 
 :root {
   --color-primary: #002D1C; --color-primary-dark: #002D1C; --color-accent: #F59E0B;
-  --color-green-soft: #e8f5ee; --color-green-mid: #4caf7d;
+  --color-green-soft: #e8f5ee; --color-green-mid: #16A34A;
   --color-white: #ffffff; --color-bg: #f7f9f7; --color-bg-light: #f0f5f1;
   --color-border: #dde8e1; --color-text-primary: #0f2318;
   --color-text-secondary: #4a6357; --color-text-muted: #7a9487;
@@ -54,13 +54,13 @@ ul, ol { list-style: none; }
   display: flex; flex-direction: column; justify-content: space-between; }
 .auth-split__logo { display: flex; align-items: center; gap: var(--space-3); }
 .auth-split__logo-img {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
 }
 .auth-split__logo-text { font-size: var(--text-xl); font-weight: var(--font-bold); color: var(--color-white); }
 .auth-split__headline { font-size: clamp(1.75rem, 3vw, 2.5rem); font-weight: var(--font-extrabold);
-  line-height: var(--leading-tight); color: var(--color-white);  margin-top: -30px;}
+  line-height: var(--leading-tight); color: var(--color-white); }
 .auth-split__headline span { color: var(--color-accent); }
 .auth-split__desc { font-size: var(--text-lg); color: rgba(255,255,255,0.75);
   line-height: var(--leading-relaxed); margin-top: var(--space-4); }
@@ -79,7 +79,7 @@ ul, ol { list-style: none; }
 .auth-card__form { display: flex; flex-direction: column; gap: var(--space-5); margin-top: var(--space-6); }
 .auth-card__alert { display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4);
   background: var(--color-green-soft); border-radius: var(--radius-md); border: 1px solid var(--color-border);
-  font-size: var(--text-sm); color: #1a5c35; }
+  font-size: var(--text-sm); color: #16A34A; }
 .auth-card__alert-icon { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: var(--color-green-mid); }
 .auth-card__footer { text-align: center; margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted); }
 .auth-card__footer a { color: var(--color-primary); font-weight: var(--font-semibold); }

@@ -3,22 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notificaciones</title>
-  <link rel="stylesheet" href="assets/styles/notificaciones.css">
+  <title>Notificaciones — FaunaScan</title>
+  <link rel="stylesheet" href="assets/styles/notificaciones.css?v=3">
 </head>
 <body>
   <div class="app-layout">
     <aside class="sidebar">
       <a href="index.html" class="sidebar__header">
-        <img src="assets/images/LogoFaunaScan.png" alt="Logo FaunaScan" class="sidebar__logo">
+        <img src="assets/images/LogoFaunaScan.png" alt="FaunaScan" class="sidebar__logo-img">
         <span class="sidebar__logo-text">FaunaScan</span>
       </a>
       <nav class="sidebar__nav">
-        <a href="dashboard.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Principal</a>
-        <a href="registrar.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Registrar</a>
-        <a href="mapa.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>Mapa</a>
-        <a href="reportes.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Reportes</a>
-        <a href="historial.html" class="sidebar__link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Historial</a>
+        <a href="dashboard.html" class="sidebar__link active">
+          <img src="assets/icons/Principal.png" class="sidebar__icon">Principal</a>
+        <a href="registrar.html" class="sidebar__link">
+          <img src="assets/icons/Registrar.png" class="sidebar__icon">Registrar</a>
+        <a href="mapa.html" class="sidebar__link">
+          <img src="assets/icons/Mapa.png" class="sidebar__icon">Mapa</a>
+        <a href="reportes.html" class="sidebar__link">
+          <img src="assets/icons/Reportes.png" class="sidebar__icon">Reportes</a>
+        <a href="historial.html" class="sidebar__link">
+          <img src="assets/icons/Historial.png" class="sidebar__icon">Historial</a>
       </nav>
     </aside>
     <div class="sidebar-overlay"></div>
@@ -28,21 +33,21 @@
         <button class="sidebar-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
         <h1 class="app-topbar__title">Notificaciones</h1>
         <div class="app-topbar__actions">
-          <a href="perfil.html" class="app-topbar__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Perfil</a>
+          <a href="configuracion-notificaciones.html" class="app-topbar__action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.42.63.76 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Configurar</a>
         </div>
       </div>
 
       <div class="notif-summary">
         <div class="notif-summary-card notif-summary-card--red">
-          <span class="notif-summary-card__num">3</span>
+          <span class="notif-summary-card__num">2</span>
           <span class="notif-summary-card__label">Críticas</span>
         </div>
         <div class="notif-summary-card notif-summary-card--blue">
-          <span class="notif-summary-card__num">7</span>
+          <span class="notif-summary-card__num">2</span>
           <span class="notif-summary-card__label">Sistema</span>
         </div>
         <div class="notif-summary-card notif-summary-card--yellow">
-          <span class="notif-summary-card__num">12</span>
+          <span class="notif-summary-card__num">2</span>
           <span class="notif-summary-card__label">Alertas</span>
         </div>
       </div>
@@ -55,7 +60,7 @@
       </div>
 
       <div class="notif-list" id="notifList">
-        <div class="notif-item notif-item--red">
+        <div class="notif-item notif-item--red" data-category="criticas">
           <div class="notif-item__left">
             <span class="notif-item__icon">🚨</span>
             <div>
@@ -66,7 +71,7 @@
           </div>
           <span class="badge badge-red">Crítica</span>
         </div>
-        <div class="notif-item notif-item--red">
+        <div class="notif-item notif-item--red" data-category="criticas">
           <div class="notif-item__left">
             <span class="notif-item__icon">⚠️</span>
             <div>
@@ -77,7 +82,7 @@
           </div>
           <span class="badge badge-red">Crítica</span>
         </div>
-        <div class="notif-item notif-item--blue">
+        <div class="notif-item notif-item--blue" data-category="sistema">
           <div class="notif-item__left">
             <span class="notif-item__icon">🤖</span>
             <div>
@@ -88,7 +93,7 @@
           </div>
           <span class="badge badge-blue">Sistema</span>
         </div>
-        <div class="notif-item notif-item--blue">
+        <div class="notif-item notif-item--blue" data-category="sistema">
           <div class="notif-item__left">
             <span class="notif-item__icon">💾</span>
             <div>
@@ -99,7 +104,7 @@
           </div>
           <span class="badge badge-blue">Sistema</span>
         </div>
-        <div class="notif-item notif-item--yellow">
+        <div class="notif-item notif-item--yellow" data-category="alertas">
           <div class="notif-item__left">
             <span class="notif-item__icon">🔔</span>
             <div>
@@ -110,7 +115,7 @@
           </div>
           <span class="badge badge-yellow">Alerta</span>
         </div>
-        <div class="notif-item notif-item--yellow">
+        <div class="notif-item notif-item--yellow" data-category="alertas">
           <div class="notif-item__left">
             <span class="notif-item__icon">✅</span>
             <div>
@@ -124,6 +129,6 @@
       </div>
     </main>
   </div>
-  <script src="assets/scripts/notificaciones.js" defer></script>
+  <script src="assets/scripts/notificaciones.js?v=3" defer></script>
 </body>
 </html>

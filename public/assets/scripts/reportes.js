@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (link.getAttribute('href') === page) link.classList.add('active');
   });
 
-  const toggle = document.getElementById('sidebarToggle');
+  const toggle = document.querySelector('.sidebar-toggle');
   const sidebar = document.querySelector('.sidebar');
   const overlay = document.querySelector('.sidebar-overlay');
   if (toggle && sidebar) {
@@ -19,13 +19,37 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   const btnGenerar = document.getElementById('btnGenerar');
+  const bannerTitle = document.querySelector('.reporte-banner__title');
+  const bannerSub = document.querySelector('.reporte-banner__sub');
   if (btnGenerar) {
     btnGenerar.addEventListener('click', function () {
       btnGenerar.textContent = 'Generando...';
       btnGenerar.disabled = true;
       setTimeout(function () {
-        btnGenerar.textContent = 'Generar Reporte';
+        const area = document.getElementById('reporteArea');
+        const desde = document.getElementById('reporteDesde');
+        const hasta = document.getElementById('reporteHasta');
+        const tipo = document.getElementById('reporteTipo');
+        if (bannerTitle && tipo) bannerTitle.textContent = tipo.options[tipo.selectedIndex].text + (area && area.value ? ' — ' + area.value : '');
+        if (bannerSub) {
+          const zona = area && area.value ? area.value : 'Bosque El Olivar';
+          const rango = (desde && desde.value ? desde.value : '01/04/2026') + ' al ' + (hasta && hasta.value ? hasta.value : '08/05/2026');
+          bannerSub.textContent = zona + ' · ' + rango;
+        }
+        btnGenerar.textContent = 'Generar reporte';
         btnGenerar.disabled = false;
+      }, 1200);
+    });
+  }
+
+  const btnGuardarReporte = document.getElementById('btnGuardarReporte');
+  if (btnGuardarReporte) {
+    btnGuardarReporte.addEventListener('click', function () {
+      btnGuardarReporte.textContent = 'Guardado';
+      btnGuardarReporte.disabled = true;
+      setTimeout(function () {
+        btnGuardarReporte.textContent = 'Guardar reporte';
+        btnGuardarReporte.disabled = false;
       }, 1500);
     });
   }
